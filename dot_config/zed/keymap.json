@@ -1,0 +1,18 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {}
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-[": "editor::Format",
+      "cmd-]": "editor::ToggleComments",
+      "cmd-'": [
+        "workspace::SendKeystrokes",
+        "cmd-c end enter console.log(\" ~ cmd-v :\",  cmd-v );"
+      ],
+      "cmd-y": "editor::Redo"
+    }
+  }
+]

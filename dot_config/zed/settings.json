@@ -1,0 +1,45 @@
+{
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "project_panel": {
+    "dock": "right"
+  },
+  "scrollbar": {
+    "git_diff": true
+  },
+  "base_keymap": "VSCode",
+  "tabs": {
+    "git_status": true
+  },
+  "active_pane_modifiers": {
+    "border_size": 0.8
+  },
+
+  "auto_install_extensions": {
+    "catppuccin": true,
+    "svelte": true
+  },
+
+  "format_on_save": "off",
+  "formatter": "prettier",
+  "prettier": {
+    "allowed": true,
+    "arrowParens": "always",
+    "printWidth": 80,
+    "semi": true,
+    "tabWidth": 2,
+    "singleQuote": true,
+    "jsxSingleQuote": false,
+    "plugins": [
+      "prettier-plugin-tailwindcss",
+      "@ianvs/prettier-plugin-sort-imports"
+    ]
+  },
+
+  "theme": "Catppuccin Mocha",
+  "ui_font_size": 14,
+  "ui_font_family": "JetBrains Mono",
+  "buffer_font_size": 14.0,
+  "buffer_font_family": "JetBrains Mono"
+}

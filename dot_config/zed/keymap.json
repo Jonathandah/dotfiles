@@ -6,9 +6,9 @@
   {
     "context": "Editor",
     "bindings": {
-      "cmd-[": "editor::Format",
-      "cmd-]": "editor::ToggleComments",
-      "cmd-'": [
+      "cmd-ä": "editor::Format",
+      "cmd-å": "editor::ToggleComments",
+      "cmd-ö": [
         "workspace::SendKeystrokes",
         "cmd-c end enter console.log(\" ~ cmd-v :\",  cmd-v );"
       ],

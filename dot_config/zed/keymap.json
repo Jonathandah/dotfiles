@@ -13,6 +13,14 @@
         "cmd-c end enter console.log(\" ~ cmd-v :\",  cmd-v );"
       ],
       "cmd-y": "editor::Redo"
+      //English keyboard
+      // "cmd-]": "editor::Format",
+      // "cmd-[": "editor::ToggleComments",
+      // "cmd-'": [
+      //      "workspace::SendKeystrokes",
+      //      "cmd-c end enter console.log(\" ~ cmd-v :\",  cmd-v );"
+      // ],
+      // "cmd-y": "editor::Redo"
     }
   }
 ]

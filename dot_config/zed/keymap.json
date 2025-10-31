@@ -6,21 +6,31 @@
   {
     "context": "Editor",
     "bindings": {
-      "cmd-ä": "editor::Format",
-      "cmd-å": "editor::ToggleComments",
-      "cmd-ö": [
-        "workspace::SendKeystrokes",
-        "cmd-c end enter console.log(\" ~ cmd-v :\",  cmd-v );"
-      ],
-      "cmd-y": "editor::Redo"
-      //English keyboard
-      // "cmd-]": "editor::Format",
-      // "cmd-[": "editor::ToggleComments",
-      // "cmd-'": [
-      //      "workspace::SendKeystrokes",
-      //      "cmd-c end enter console.log(\" ~ cmd-v :\",  cmd-v );"
+      // "cmd-ä": "editor::Format",
+      // "cmd-å": "editor::ToggleComments",
+      // "cmd-ö": [
+      //   "workspace::SendKeystrokes",
+      //   "cmd-c end enter console.log(\" ~ cmd-v :\",  cmd-v );"
       // ],
       // "cmd-y": "editor::Redo"
+      //English keyboard
+       "cmd-]": "editor::Format",
+       "cmd-[": "editor::ToggleComments",
+       "cmd-'": [
+            "workspace::SendKeystrokes",
+            "cmd-c end enter console.log(\" ~ cmd-v :\",  cmd-v );"
+       ],
+       "cmd-y": "editor::Redo"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-r": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "bindings": {
+      "ctrl-b": "workspace::ToggleLeftDock"
     }
   }
 ]

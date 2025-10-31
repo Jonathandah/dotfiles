@@ -8,6 +8,7 @@
   "modules-center": ["clock", "custom/update", "custom/screenrecording-indicator"],
   "modules-right": [
     "group/tray-expander",
+    "hyprland/language",
     "bluetooth",
     "network",
     "pulseaudio",
@@ -51,7 +52,6 @@
     "signal": 7,
     "interval": 3600
   },
-
   "cpu": {
     "interval": 5,
     "format": "󰍛",
@@ -94,6 +94,12 @@
       "warning": 20,
       "critical": 10
     }
+  },
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "GB",
+    "format-se": "SE",
+    "on-click": "hyprctl switchxkblayout hl-virtual-keyboard-fcitx5 next"
   },
   "bluetooth": {
     "format": "",

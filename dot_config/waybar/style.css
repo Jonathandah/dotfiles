@@ -40,6 +40,11 @@
   margin: 0 7.5px;
 }
 
+#language {
+  min-width: 12px;
+  margin-right: 16px;
+}
+
 #tray {
   margin-right: 16px;
 }
@@ -53,7 +58,7 @@
 }
 
 #custom-expand-icon {
-  margin-right: 20px;
+  margin-right: 16px;
 }
 
 tooltip {

@@ -99,7 +99,7 @@
     "format": "{}",
     "format-en": "GB",
     "format-se": "SE",
-    "on-click": "hyprctl switchxkblayout hl-virtual-keyboard-fcitx5 next"
+    "on-click": "hyprctl switchxkblayout current next"
   },
   "bluetooth": {
     "format": "",

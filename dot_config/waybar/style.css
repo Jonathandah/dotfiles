@@ -1,14 +1,22 @@
 @import "../omarchy/current/theme/waybar.css";
 
+
 * {
   background-color: @background;
   color: @foreground;
 
   border: none;
-  border-radius: 0;
-  min-height: 0;
-  font-family: 'CaskaydiaMono Nerd Font';
+  border-radius: 8px;
+  font-family: 'CaskaydiaMono Nerd Font Propo';
   font-size: 12px;
+}
+
+tooltip {
+  opacity: 0.9;
+ }
+
+window#waybar {
+  background-color: transparent;
 }
 
 .modules-left {
@@ -19,57 +27,66 @@
   margin-right: 8px;
 }
 
+.modules-center {
+  border-radius: 0;
+  border-left: 1px solid alpha(@foreground, 0.2);
+  border-right: 1px solid alpha(@foreground, 0.2);
+  padding: 0 80px;
+}
+
 #workspaces button {
   all: initial;
   padding: 0 6px;
   margin: 0 1.5px;
   min-width: 9px;
+
 }
 
 #workspaces button.empty {
   opacity: 0.5;
 }
 
+#window,
+#tray,
 #cpu,
+#memory,
 #battery,
+#network,
+#bluetooth,
 #pulseaudio,
 #custom-omarchy,
+#backlight,
+#language,
+#custom-updatespacman,
 #custom-screenrecording-indicator,
 #custom-update {
   min-width: 12px;
   margin: 0 7.5px;
 }
 
-#language {
-  min-width: 12px;
-  margin-right: 16px;
+
+#window {
+  padding-right: 8px;
 }
 
-#tray {
-  margin-right: 16px;
-}
+#custom-music {
+  border-radius: 0;
+  border-left: 1px solid alpha(@foreground, 0.2);
 
-#bluetooth {
-  margin-right: 17px;
-}
-
-#network {
-  margin-right: 13px;
-}
-
-#custom-expand-icon {
-  margin-right: 16px;
+  padding: 0 20px 0 20px;
 }
 
 tooltip {
-  padding: 2px;
+  padding: 0.5px;
 }
 
 #custom-update {
   font-size: 10px;
+  padding: 2px 0 0 0px;
+
 }
 
-#clock {
+#clock, #idle_inhibitor {
   margin-left: 8.75px;
 }
 
@@ -85,4 +102,7 @@ tooltip {
 
 #custom-screenrecording-indicator.active {
   color: #a55555;
+}
+#window {
+  margin: 8.75px;
 }

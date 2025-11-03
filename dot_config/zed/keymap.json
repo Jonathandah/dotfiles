@@ -20,7 +20,7 @@
         "workspace::SendKeystrokes",
         "ctrl-c end enter console.log(\" ~ ctrl-v :\",  ctrl-v );"
       ],
-       "cmd-y": "editor::Redo"
+       "ctrl-y": "editor::Redo"
     }
   },
   {

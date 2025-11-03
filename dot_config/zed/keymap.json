@@ -14,12 +14,12 @@
       // ],
       // "cmd-y": "editor::Redo"
       //English keyboard
-       "cmd-]": "editor::Format",
-       "cmd-[": "editor::ToggleComments",
-       "cmd-'": [
-            "workspace::SendKeystrokes",
-            "cmd-c end enter console.log(\" ~ cmd-v :\",  cmd-v );"
-       ],
+       "ctrl-]": "editor::Format",
+       "ctrl-[": "editor::ToggleComments",
+       "ctrl-'": [
+        "workspace::SendKeystrokes",
+        "ctrl-c end enter console.log(\" ~ ctrl-v :\",  ctrl-v );"
+      ],
        "cmd-y": "editor::Redo"
     }
   },

@@ -6,15 +6,24 @@
   "height": 30,
   "width": 1400,
   "margin": "2px",
-  "modules-left": ["custom/omarchy", "hyprland/workspaces", "hyprland/window", "custom/music"],
-  "modules-center": ["clock",  "custom/update", "custom/screenrecording-indicator"],
+  "modules-left": [
+    "custom/omarchy",
+    "hyprland/workspaces",
+    "hyprland/window",
+    "custom/music"
+  ],
+  "modules-center": [
+    "clock",
+    "custom/update",
+    "custom/screenrecording-indicator"
+  ],
   "modules-right": [
     "group/tray-expander",
     "backlight",
     "custom/updatespacman",
     "bluetooth",
     "network",
-     "hyprland/language",
+    "hyprland/language",
     "pulseaudio",
     "cpu",
     "memory",
@@ -44,7 +53,7 @@
       "5": []
     }
   },
-"hyprland/window": {
+  "hyprland/window": {
     "format": "{class}",
     "rewrite": {
       " - ": "", // if no window is focused, a single dash is displayed, this removes it
@@ -72,7 +81,7 @@
     "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space"
   },
   "custom/update": {
-    "format": "<span weight='bold' >\ue900</span>",
+    "format": "",
     "exec": "omarchy-update-available",
     "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
     "tooltip-format": "Omarchy update available",
@@ -80,21 +89,26 @@
     "interval": 3600
   },
   "backlight": {
-      "device": "intel_backlight",
-      "format": "{percent}% {icon}",
-      "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"]
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": [
+      "🌑",
+      "🌘",
+      "🌗",
+      "🌖",
+      "🌕"
+    ]
   },
   "custom/updatespacman": {
     "format": "{} {icon}",
     "return-type": "json",
     "format-icons": {
-        "has-updates": "󱍷",
-        "updated": "󰂪"
+      "has-updates": "󱍷",
+      "updated": "󰂪"
     },
     "exec-if": "which waybar-module-pacman-updates",
     "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
   },
-
   "custom/music": {
     "format": "  {}",
     "escape": true,
@@ -104,11 +118,19 @@
     "on-click": "playerctl play-pause",
     "max-length": 50,
   },
-
   "cpu": {
     "interval": 5,
     "format": "󰍛 {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ],
     "on-click": "$TERMINAL -e btop",
   },
   "memory": {
@@ -128,7 +150,13 @@
     "on-click": "hyprctl switchxkblayout current next",
   },
   "network": {
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
     "format": "{icon}",
     "format-wifi": "{icon}",
     "format-ethernet": "󰈀",
@@ -146,8 +174,30 @@
     "format-charging": "{icon} {capacity}%",
     "format-plugged": "",
     "format-icons": {
-      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
-      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+      "charging": [
+        "󰢜",
+        "󰂆",
+        "󰂇",
+        "󰂈",
+        "󰢝",
+        "󰂉",
+        "󰢞",
+        "󰂊",
+        "󰂋",
+        "󰂅"
+      ],
+      "default": [
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ]
     },
     "format-full": "󰂅",
     "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
@@ -174,7 +224,11 @@
     "scroll-step": 5,
     "format-muted": "",
     "format-icons": {
-      "default": ["", "", ""]
+      "default": [
+        "",
+        "",
+        ""
+      ]
     }
   },
   "group/tray-expander": {
@@ -183,7 +237,10 @@
       "transition-duration": 600,
       "children-class": "tray-group-item"
     },
-    "modules": ["custom/expand-icon", "tray"]
+    "modules": [
+      "custom/expand-icon",
+      "tray"
+    ]
   },
   "custom/expand-icon": {
     "format": " ",

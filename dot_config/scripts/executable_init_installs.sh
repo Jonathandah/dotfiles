@@ -47,7 +47,8 @@ yay -S --noconfirm \
     # Browsers
     mullvad-browser-bin \
     librewolf-bin \
-    helium-browser-bin
+    helium-browser-bin \
+    tor-browser-bin
 
 # Clean up
 echo "Cleaning up..."

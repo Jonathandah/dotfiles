@@ -1,19 +1,18 @@
-@import "../omarchy/current/theme/waybar.css";
-
+@import '../omarchy/current/theme/waybar.css';
 
 * {
-  background-color: @background;
+  background-color: black;
   color: @foreground;
 
   border: none;
-  border-radius: 8px;
+
   font-family: 'CaskaydiaMono Nerd Font Propo';
   font-size: 12px;
 }
 
 tooltip {
   opacity: 0.9;
- }
+}
 
 window#waybar {
   background-color: transparent;
@@ -27,19 +26,18 @@ window#waybar {
   margin-right: 8px;
 }
 
-.modules-center {
+/*.modules-center {
   border-radius: 0;
   border-left: 1px solid alpha(@foreground, 0.2);
   border-right: 1px solid alpha(@foreground, 0.2);
   padding: 0 80px;
-}
+}*/
 
 #workspaces button {
   all: initial;
   padding: 0 6px;
   margin: 0 1.5px;
   min-width: 9px;
-
 }
 
 #workspaces button.empty {
@@ -64,15 +62,14 @@ window#waybar {
   margin: 0 7.5px;
 }
 
-
 #window {
   padding-right: 8px;
 }
 
-#custom-music {
+#custom-music,
+#clock {
   border-radius: 0;
   border-left: 1px solid alpha(@foreground, 0.2);
-
   padding: 0 20px 0 20px;
 }
 
@@ -83,10 +80,10 @@ tooltip {
 #custom-update {
   font-size: 10px;
   padding: 2px 0 0 0px;
-
 }
 
-#clock, #idle_inhibitor {
+#clock,
+#idle_inhibitor {
   margin-left: 8.75px;
 }
 

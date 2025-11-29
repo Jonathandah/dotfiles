@@ -1,36 +1,46 @@
 @import '../../../../.local/share/omarchy/default/walker/themes/omarchy-default/style.css';
 
-* {
-  font-family: monospace;
-  font-size: 16px;
+@define-color selected-text #8caaee; /* Keep selected text color the same, as it looks good in both themes */
+@define-color text #D3D3C1;          /* Lighten the text color for readability in dark mode */
+@define-color base #2E2E2E;          /* Darker base background color */
+@define-color border #B0B0A5;        /* Lighter border for contrast */
+@define-color foreground #BFBF77;    /* A slightly lighter color for foreground elements */
+@define-color background #2A2A2A;    /* Dark background color */
+@define-color hover #B0B0A5;         /* Lighter hover effect */
+
+
+
+window .search-container,
+window .search {
+  background: alpha(@base, 1);
+  color: @foreground;
+  border: 1px solid alpha(@border, 0.5);
+  border-radius: 12px;
+  box-shadow: 0 0 6px alpha(black, 1);
+  text-shadow: 0 0 1px grey;
+  padding: 8px 12px;
+  margin: 4px 0;
+  font-size: 14px;
+  font-weight: 500;
 }
 
-.box-wrapper {
-  border-radius: 8px;
-  padding: 0px;
-  border: 0px solid @border;
-  background-color: #18181A;
+window .list {
+  text-shadow: 0 0 1px grey;
+  color: @foreground;
+  font-size: 14px;
+  font-weight: 450;
+
 }
 
-.search-container {
-  background-color: #18181A;
-  padding: 14px 30px 0px 30px;
-}
-
-child:selected .item-box {
-  background-color: @background;
-}
-
-child:selected .item-box * {
-  color: white;
-}
-
-.item-box {
-  border-radius: 0px;
-  margin: 0px 0px;
-}
-
-.keybinds-wrapper {
-  opacity: 0;
-  margin: -20px
+window .preview {
+  text-shadow: 0 0 1px grey;
+  color: @foreground;
+  font-size: 14px;
+  font-weight: 450;
+  box-shadow: 0 0 6px alpha(grey, 1);
+  padding: 2px 4px;
+  margin: 2px 0;
+  background: alpha(@base, 0.5);
+  border-radius: 6px;
+  border: 1px solid alpha(@border, 0.5);
 }

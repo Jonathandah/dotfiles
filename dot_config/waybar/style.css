@@ -1,21 +1,14 @@
 @import '../omarchy/current/theme/waybar.css';
 
 * {
-  background-color: black;
+  background-color: @background;
   color: @foreground;
 
   border: none;
-
-  font-family: 'CaskaydiaMono Nerd Font Propo';
+  border-radius: 0;
+  min-height: 0;
+  font-family: 'JetBrainsMono Nerd Font';
   font-size: 12px;
-}
-
-tooltip {
-  opacity: 0.9;
-}
-
-window#waybar {
-  background-color: transparent;
 }
 
 .modules-left {
@@ -25,13 +18,6 @@ window#waybar {
 .modules-right {
   margin-right: 8px;
 }
-
-/*.modules-center {
-  border-radius: 0;
-  border-left: 1px solid alpha(@foreground, 0.2);
-  border-right: 1px solid alpha(@foreground, 0.2);
-  padding: 0 80px;
-}*/
 
 #workspaces button {
   all: initial;
@@ -73,16 +59,14 @@ window#waybar {
 }
 
 tooltip {
-  padding: 0.5px;
+  padding: 2px;
 }
 
 #custom-update {
   font-size: 10px;
-  padding: 2px 0 0 0px;
 }
 
-#clock,
-#idle_inhibitor {
+#clock {
   margin-left: 8.75px;
 }
 
@@ -98,7 +82,4 @@ tooltip {
 
 #custom-screenrecording-indicator.active {
   color: #a55555;
-}
-#window {
-  margin: 8.75px;
 }

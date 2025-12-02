@@ -4,7 +4,6 @@
   "position": "top",
   "spacing": 0,
   "height": 30,
-
   "modules-left": [
     "custom/omarchy",
     "hyprland/workspaces",
@@ -13,12 +12,12 @@
   ],
   "modules-center": [
     "clock",
+    "custom/updatespacman",
     "custom/update",
     "custom/screenrecording-indicator",
   ],
   "modules-right": [
     "group/tray-expander",
-    "custom/updatespacman",
     "bluetooth",
     "network",
     "hyprland/language",
@@ -87,11 +86,7 @@
     "signal": 7,
     "interval": 3600,
   },
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{percent}% {icon}",
-    "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"],
-  },
+
   "custom/updatespacman": {
     "format": "{} {icon}",
     "return-type": "json",
@@ -103,7 +98,7 @@
     "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300",
   },
   "custom/music": {
-    "format": "  {}",
+    "format": "$ {}",
     "escape": true,
     "interval": 5,
     "tooltip": false,
@@ -128,7 +123,7 @@
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
   },
   "hyprland/language": {
-    "format": " {shortDescription}",
+    "format": "{shortDescription}",
     "format-gb": "GB",
     "format-se": "SWE",
     "on-click": "hyprctl switchxkblayout current next",
@@ -194,7 +189,7 @@
     "modules": ["custom/expand-icon", "tray"],
   },
   "custom/expand-icon": {
-    "format": " ",
+    "format": "",
     "tooltip": false,
   },
   "custom/screenrecording-indicator": {

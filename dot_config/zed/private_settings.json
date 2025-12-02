@@ -1,4 +1,5 @@
 {
+  "theme": "Catppuccin Mocha",
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
@@ -45,7 +46,7 @@
     ]
   },
 
-  "theme": "Catppuccin Mocha",
+  // "theme": "Catppuccin Mocha",
   "ui_font_size": 14,
   "ui_font_family": "JetBrainsMono Nerd Font",
   "buffer_font_size": 14.0,

@@ -12,3 +12,11 @@ source ~/.local/share/omarchy/default/bash/rc
 
 # Soft delete (move to trash)
 alias rmtrash='gio trash'
+
+# pnpm
+export PNPM_HOME="/home/jonathan/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

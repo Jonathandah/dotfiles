@@ -12,7 +12,8 @@ source ~/.local/share/omarchy/default/bash/rc
 
 # Soft delete (move to trash)
 alias rmtrash='gio trash'
-
+# Upgrades your package.json
+alias ncu='npx npm-check-updates'
 # pnpm
 export PNPM_HOME="/home/jonathan/.local/share/pnpm"
 case ":$PATH:" in

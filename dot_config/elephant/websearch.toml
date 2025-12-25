@@ -1,0 +1,8 @@
+# Setting Search Engine to DuckDuckGo
+# SearchTerm Param: q=%TERM%
+# Theme Dark: kae=d
+[[entries]]
+default = true
+name = "DuckDuckGo"
+icons = "./duckduckgo.png"
+url = "https://duckduckgo.com/?q=%TERM%&kae=d"

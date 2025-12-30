@@ -1,0 +1,7 @@
+# Changes require a relaunch of Hyprland to take effect.
+
+export TERMINAL=xdg-terminal-exec
+export EDITOR=nvim
+export OMARCHY_SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
+export OMARCHY_SCREENRECORD_DIR="$HOME/Pictures/Screenshots"
+export BROWSER="helium-browser"

@@ -17,11 +17,6 @@ vpn_help() {
   mullvad
 }
 
-# Utils
-build_tooltip() {
-  TOOLTIP="Mullvad VPN\n\nStatus: $VPN_CONNECTION\nRelay: $VPN_RELAY\nFeatures: $VPN_FEATURES\nVisible Location: $VPN_VISIBLE_LOCATION"
-}
-
 #Parsers
 parse_status() {
   local status="$1"
@@ -51,7 +46,10 @@ reconnect() {
 }
 
 get_status() {
-  local class alt
+  local class alt tooltip
+
+  tooltip="Mullvad VPN\n\nStatus: $VPN_CONNECTION\nRelay: $VPN_RELAY\nFeatures: $VPN_FEATURES\nVisible Location: $VPN_VISIBLE_LOCATION"
+
   case "$VPN_CONNECTION" in
   Connected)
     class="connected"
@@ -67,9 +65,7 @@ get_status() {
     ;;
   esac
 
-  build_tooltip
-
-  echo "{\"text\": \"$VPN_CONNECTION\", \"tooltip\": \"$TOOLTIP\", \"alt\": \"$alt\", \"class\": \"$class\"}"
+  echo "{\"text\": \"$VPN_CONNECTION\", \"tooltip\": \"$tooltip\", \"alt\": \"$alt\", \"class\": \"$class\"}"
 }
 
 # Init

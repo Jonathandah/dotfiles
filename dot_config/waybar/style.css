@@ -1,5 +1,6 @@
 @import "../omarchy/current/theme/waybar.css";
 
+/* Global */
 * {
   color: @foreground;
   background: transparent;
@@ -10,117 +11,104 @@
   font-size: 12px;
 }
 
+/* Modules */
 .modules-left {
   background-color: @background;
   border-radius: 0 0 5px 0;
 }
-
 .modules-right {
   background-color: @background;
   border-radius: 0 0 0 5px;
 }
-
 .modules-center {
   background-color: @background;
   border-radius: 0 0 5px 5px;
 }
 
-#workspaces button {
-  all: initial;
-  padding: 0 6px;
-  margin: 0 1.5px;
-  min-width: 9px;
-}
-
-#workspaces button.empty {
-  opacity: 0.5;
-}
-
+/* Items */
 #window,
 #tray,
-#custom-expand-icon,
 #cpu,
 #memory,
 #battery,
 #network,
 #bluetooth,
 #pulseaudio,
-#custom-omarchy,
 #backlight,
 #language,
 #clock,
-#custom-updatespacman,
 #custom-music,
+#custom-mullvad,
 #custom-screenrecording-indicator,
+#custom-omarchy,
+#custom-expand-icon,
 #custom-update {
   min-width: 14px;
   margin: 0 7.5px;
 }
 
-#custom-omarchy,
-#window,
-#custom-music {
-  min-width: 0;
+/* Workspaces */
+#workspaces button {
+  all: initial;
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 9px;
+}
+#workspaces button.empty {
+  opacity: 0.5;
 }
 
-#tray,
-#custom-expand-icon,
-#cpu,
-#bluetooth,
-#memory {
-  font-size: 14px;
-}
-
-#custom-mullvad {
-  margin: 0 7.5px;
-}
-
-#pulseaudio {
-  font-size: 18px;
-}
-
+/* Tooltip */
 tooltip {
   padding: 2px;
   background-color: @background;
   border-radius: 5px;
 }
 
-#custom-update {
-  font-size: 10px;
-}
-
-#custom-mullvad.connected {
-  color: #00ff77;
-}
-
+/* Mullvad VPN */
 #custom-mullvad.connecting {
   color: @foreground;
 }
-
+#custom-mullvad.connected {
+  color: #00ff77;
+}
 #custom-mullvad.disconnected {
   font-size: 16px;
   color: #ff0055;
 }
 
-#custom-music {
-  padding-left: 15;
-  border-left: 1px solid alpha(@foreground, 0.2);
-}
-
-#clock {
-  margin-left: 8.75px;
-}
-
-.hidden {
-  opacity: 0;
-}
-
+/* Screen Recording Indicator */
 #custom-screenrecording-indicator {
   min-width: 12px;
   margin-left: 8.75px;
   font-size: 10px;
 }
-
 #custom-screenrecording-indicator.active {
   color: #a55555;
+}
+
+/* Utils */
+.hidden {
+  opacity: 0;
+}
+
+/* Overrides */
+#custom-omarchy,
+#custom-mullvad,
+#custom-music {
+  min-width: 0;
+}
+#bluetooth,
+#custom-expand-icon {
+  font-size: 14px;
+}
+#pulseaudio {
+  font-size: 18px;
+}
+#custom-music {
+  padding-left: 15px;
+  border-left: 1px solid alpha(@foreground, 0.2);
+}
+#clock {
+  margin-left: 8.75px;
 }

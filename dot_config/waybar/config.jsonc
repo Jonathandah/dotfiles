@@ -29,12 +29,12 @@
 
   "custom/mullvad": {
     "format": "{icon}",
-    "exec": "bash -c 'source /home/jonathan/.config/waybar/scripts/mullvad_vpn_status.sh;get_status'",
+    "exec": "/home/jonathan/.config/waybar/scripts/mullvad_vpn.sh status",
     "interval": 300, // Update every 5 minutes
     "return-type": "json",
-    "on-click": "bash -c 'source /home/jonathan/.config/waybar/scripts/mullvad_vpn_status.sh;toggle_connection'",
+    "on-click": "/home/jonathan/.config/waybar/scripts/mullvad_vpn.sh toggle",
     "on-click-middle": "mullvad-vpn",
-    "on-click-right": "bash -c 'source /home/jonathan/.config/waybar/scripts/mullvad_vpn_status.sh;reconnect'",
+    "on-click-right": "/home/jonathan/.config/waybar/scripts/mullvad_vpn.sh reconnect",
     "format-icons": {
       "connected": "\uf023",
       "connecting": "\uf023",

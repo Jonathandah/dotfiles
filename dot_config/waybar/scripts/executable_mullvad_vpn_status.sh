@@ -14,7 +14,6 @@ STATUS_CONNECTING=Connecting
 TOOLTIP="Mullvad VPN \n\nStatus: $VPN_CONNECTION\nRelay: $VPN_RELAY\nFeatures: $VPN_FEATURES\nVisible Location: $VPN_VISIBLE_LOCATION"
 
 get_status() {
-
   # Check if the VPN is connected
   if [ "$VPN_CONNECTION" = "$STATUS_CONNECTED" ]; then
     # VPN is connected

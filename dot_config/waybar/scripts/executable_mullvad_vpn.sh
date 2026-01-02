@@ -13,9 +13,6 @@ vpn_disconnect() {
 vpn_connect() {
   mullvad connect
 }
-vpn_help() {
-  mullvad
-}
 
 #Parsers
 parse_status() {
@@ -76,5 +73,5 @@ case "$1" in
 toggle) toggle_connection ;;
 reconnect) reconnect ;;
 status) get_status ;;
-*) vpn_help ;;
+*) get_status ;;
 esac

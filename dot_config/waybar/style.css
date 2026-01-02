@@ -87,7 +87,7 @@ tooltip {
 }
 
 #custom-mullvad.connected {
-  color: green;
+  color: #00ff77;
 }
 
 #custom-mullvad.connecting {
@@ -95,7 +95,8 @@ tooltip {
 }
 
 #custom-mullvad.disconnected {
-  color: red;
+  font-size: 16px;
+  color: #ff0055;
 }
 
 #custom-music {

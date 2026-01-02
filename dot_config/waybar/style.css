@@ -1,9 +1,8 @@
 @import "../omarchy/current/theme/waybar.css";
 
 * {
-  background-color: @background;
   color: @foreground;
-
+  background: transparent;
   border: none;
   border-radius: 0;
   min-height: 0;
@@ -12,11 +11,18 @@
 }
 
 .modules-left {
-  margin-left: 8px;
+  background-color: @background;
+  border-radius: 0 0 5px 0;
 }
 
 .modules-right {
-  margin-right: 8px;
+  background-color: @background;
+  border-radius: 0 0 0 5px;
+}
+
+.modules-center {
+  background-color: @background;
+  border-radius: 0 0 5px 5px;
 }
 
 #workspaces button {
@@ -42,38 +48,59 @@
 #custom-omarchy,
 #backlight,
 #language,
+#clock,
 #custom-updatespacman,
+#custom-music,
 #custom-screenrecording-indicator,
+#custom-mullvad,
 #custom-update {
   min-width: 14px;
   margin: 0 7.5px;
+}
+
+#custom-omarchy,
+#window,
+#custom-music {
+  min-width: 0;
 }
 
 #tray,
 #custom-expand-icon,
 #cpu,
 #bluetooth,
-#pulseaudio,
 #memory {
   font-size: 14px;
 }
 
-#window {
-  padding-right: 8px;
-}
-
-#custom-music {
-  border-radius: 0;
-  border-left: 1px solid alpha(@foreground, 0.2);
-  padding: 0 20px 0 20px;
+#pulseaudio {
+  font-size: 18px;
 }
 
 tooltip {
   padding: 2px;
+  background-color: @background;
+  border-radius: 5px;
 }
 
 #custom-update {
   font-size: 10px;
+}
+
+#custom-mullvad.connected {
+  color: green;
+}
+
+#custom-mullvad.connecting {
+  color: @foreground;
+}
+
+#custom-mullvad.disconnected {
+  color: red;
+}
+
+#custom-music {
+  padding-left: 15;
+  border-left: 1px solid alpha(@foreground, 0.2);
 }
 
 #clock {

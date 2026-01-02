@@ -18,6 +18,7 @@
   ],
   "modules-right": [
     "group/tray-expander",
+    "custom/mullvad",
     "bluetooth",
     "network",
     "hyprland/language",
@@ -26,6 +27,22 @@
     "memory",
     "battery",
   ],
+
+  "custom/mullvad": {
+    "format": "{icon}",
+    "exec": "bash -c 'source /home/jonathan/.config/waybar/scripts/mullvad_vpn_status.sh;get_status'",
+    "interval": 300, // Update every 5 minutes
+    "return-type": "json",
+    "on-click": "bash -c 'source /home/jonathan/.config/waybar/scripts/mullvad_vpn_status.sh;toggle_connection'",
+    "on-click-middle": "mullvad-vpn",
+    "on-click-right": "bash -c 'source /home/jonathan/.config/waybar/scripts/mullvad_vpn_status.sh;reconnect'",
+    "format-icons": {
+      "connected": "\uf023",
+      "connecting": "\uf023",
+      "disconnected": "\uf2fc",
+    },
+    "tooltip": true,
+  },
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
@@ -52,24 +69,27 @@
     },
   },
   "hyprland/window": {
-    "format": "{class}",
+    "format": "{title} - {class}",
+    "max-length": 35,
     "rewrite": {
       " - ": "", // if no window is focused, a single dash is displayed, this removes it
-      "(.*?) - Chromium - chromium": " $1",
-      "(.*) - Obsidian - .* - obsidian": " $1",
-      "(.*nvim)...(.*)": " $2",
-      "(.*code) - (.*)": "󰨞 $1",
-      "^.*btop( .*|$)": "󰧨 BTOP $1",
-      "^.*cmatrix( .*|$)": "󰘨 MATRIX $1",
-      "(.*) - Spotify": " $1",
-      "(.*) - com.mitchellh.ghostty": "󰊠 $1",
-      "(.*) - Alacritty": "  $1",
-      "(.*) - BeeperTexts": "󰻞  $1",
-      "(.*Discord)...(.*).. (.*)": " $2",
-      "(.*) - org.gnome.Nautilus": "󰣆 $1",
+      "(.*?) - Chromium - chromium": "  $1 ",
+      "(.*chrome)...(.*)": "  $1 ",
+      "(.*) - Obsidian - .* - obsidian": "  $1 ",
+      "(.*nvim)...(.*)": "  $2 ",
+      "(.*code) - (.*)": " 󰨞 $1 ",
+      "^.*btop( .*|$)": " 󰧨 BTOP $1 ",
+      "^.*cmatrix( .*|$)": " 󰘨 MATRIX $1 ",
+      "(.*) - Spotify": "  $1 ",
+      "(.*) - com.mitchellh.ghostty": " 󰊠 $1 ",
+      "(.*) - Alacritty": "   $1 ",
+      "(.*) - BeeperTexts": " 󰻞  $1 ",
+      "(.*Discord)...(.*).. (.*)": "  $2 ",
+      "(.*) - org.gnome.Nautilus": " 󰣆 $1 ",
+      "(.*) - fish": "  [$1] ",
       "(.*Steam)...(.*)": " $1",
-      // "OBS *. - (.*) - com.obsproject.Studio": "  $1", // not yet functional
-      // "nvim (.*) - com.mitchellh.ghostty": "  $1", // not being captured
+      "(.*imv)...(.*).. (.*)": " $2",
+      "(.*) - com.obsproject.Studio": "  $1 ",
     },
   },
   "custom/omarchy": {
@@ -170,7 +190,7 @@
     "on-click": "omarchy-launch-bluetooth",
   },
   "pulseaudio": {
-    "format": "{icon} {volume}%",
+    "format": "{icon}",
     "on-click": "omarchy-launch-or-focus-tui wiremix",
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",

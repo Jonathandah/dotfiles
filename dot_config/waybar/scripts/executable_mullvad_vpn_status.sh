@@ -10,9 +10,10 @@ VPN_VISIBLE_LOCATION=$(echo "$VPN_STATUS" | grep -i "Visible location:" | cut -d
 STATUS_CONNECTED=Connected
 STATUS_CONNECTING=Connecting
 
-get_status() {
+# Vars
+TOOLTIP="Mullvad VPN \n\nStatus: $VPN_CONNECTION\nRelay: $VPN_RELAY\nFeatures: $VPN_FEATURES\nVisible Location: $VPN_VISIBLE_LOCATION"
 
-  TOOLTIP="Status: $VPN_CONNECTION\nRelay: $VPN_RELAY\nFeatures: $VPN_FEATURES\nVisible Location: $VPN_VISIBLE_LOCATION"
+get_status() {
 
   # Check if the VPN is connected
   if [ "$VPN_CONNECTION" = "$STATUS_CONNECTED" ]; then

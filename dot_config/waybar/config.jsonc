@@ -12,13 +12,13 @@
   ],
   "modules-center": [
     "clock",
+    "custom/mullvad",
     "custom/updatespacman",
     "custom/update",
     "custom/screenrecording-indicator",
   ],
   "modules-right": [
     "group/tray-expander",
-    "custom/mullvad",
     "bluetooth",
     "network",
     "hyprland/language",

@@ -52,7 +52,6 @@
 #custom-updatespacman,
 #custom-music,
 #custom-screenrecording-indicator,
-#custom-mullvad,
 #custom-update {
   min-width: 14px;
   margin: 0 7.5px;
@@ -70,6 +69,10 @@
 #bluetooth,
 #memory {
   font-size: 14px;
+}
+
+#custom-mullvad {
+  margin: 0 7.5px;
 }
 
 #pulseaudio {

@@ -65,6 +65,16 @@ tooltip {
   border-radius: 5px;
 }
 
+/* Battery */
+#battery {
+}
+#battery.warning {
+  color: #ffd014;
+}
+#battery.critical {
+  color: #ff0055;
+}
+
 /* Mullvad VPN */
 #custom-mullvad.connecting {
   color: @foreground;
@@ -74,6 +84,7 @@ tooltip {
 }
 #custom-mullvad.disconnected {
   font-size: 16px;
+  margin: 0 7.5px 0 4.5px;
   color: #ff0055;
 }
 
@@ -102,7 +113,8 @@ tooltip {
 #custom-expand-icon {
   font-size: 14px;
 }
-#pulseaudio {
+#pulseaudio,
+#network {
   font-size: 18px;
 }
 #custom-music {

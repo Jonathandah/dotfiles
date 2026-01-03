@@ -29,7 +29,7 @@
 
   "custom/mullvad": {
     "format": "{icon}",
-    "exec": "/home/jonathan/.config/waybar/scripts/mullvad_vpn.sh status",
+    "exec": "/home/jonathan/.config/waybar/scripts/mullvad_vpn.sh",
     "interval": 300, // Update every 5 minutes
     "return-type": "json",
     "on-click": "/home/jonathan/.config/waybar/scripts/mullvad_vpn.sh toggle",

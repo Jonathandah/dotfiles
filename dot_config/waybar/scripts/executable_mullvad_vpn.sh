@@ -60,9 +60,9 @@ VPN_VISIBLE_LOCATION=$(echo "$VPN_STATUS" | awk -F'Visible location: ' '/Visible
 
 
 # @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
-# Methods
+# Actions
 #
-# [toggle_connection] Connect/disconnect to a VPN relay based on current status
+# [toggle_connection] Connect/disconnect to a VPN relay based on current status and send notification
 toggle_connection() {
   if [ "$VPN_CONNECTION" = "Connected" ]; then
     vpn_disconnect
@@ -74,7 +74,7 @@ toggle_connection() {
   sleep 1
 }
 
-# [reconnect] Reconnect to any matching VPN relay
+# [reconnect] Reconnect to any matching VPN relay and send notification
 reconnect() {
   vpn_reconnect
 
@@ -82,8 +82,8 @@ reconnect() {
   sleep 1
 }
 
-# [get_status] Get VPN status as Waybar JSON
-get_status() {
+# [get_module_data] Get data for custom/mullvad module in waybar. Returns waybar JSON
+get_module_data() {
   local class alt tooltip
 
   tooltip="Mullvad VPN\n\nStatus: $VPN_CONNECTION\nRelay: $VPN_RELAY\nFeatures: $VPN_FEATURES\nVisible Location: $VPN_VISIBLE_LOCATION"
@@ -112,6 +112,5 @@ get_status() {
 case "$1" in
 toggle) toggle_connection ;;
 reconnect) reconnect ;;
-status) get_status ;;
-*) get_status ;;
+*) get_module_data ;;
 esac

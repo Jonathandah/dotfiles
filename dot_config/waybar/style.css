@@ -66,11 +66,6 @@ tooltip {
 }
 
 /* Battery */
-#battery {
-}
-#battery.warning {
-  color: #ffd014;
-}
 #battery.critical {
   color: #ff0055;
 }

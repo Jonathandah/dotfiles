@@ -30,7 +30,7 @@
   "custom/mullvad": {
     "format": "{icon}",
     "exec": "/home/jonathan/.config/waybar/scripts/mullvad_vpn.sh",
-    "interval": 300, // Update every 5 minutes
+    "interval": 60,
     "return-type": "json",
     "on-click": "/home/jonathan/.config/waybar/scripts/mullvad_vpn.sh toggle",
     "on-click-middle": "mullvad-vpn",
@@ -92,7 +92,7 @@
     },
   },
   "custom/omarchy": {
-    "format": "<span font='omarchy'>\ue900</span>",
+    "format": "[MENU]",
     "on-click": "omarchy-menu",
     "on-click-right": "xdg-terminal-exec",
     "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space",
@@ -132,7 +132,7 @@
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
   },
   "hyprland/language": {
-    "format": "{shortDescription}",
+    "format": "[{shortDescription}]",
     "format-gb": "GB",
     "format-se": "SWE",
     "on-click": "hyprctl switchxkblayout current next",

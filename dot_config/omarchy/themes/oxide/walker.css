@@ -1,0 +1,49 @@
+@define-color selected-text #01d38f;
+@define-color hover #081112;
+@define-color text #01d38f;
+@define-color base #112322;
+@define-color border #01d38f;
+@define-color foreground #01d38f;
+@define-color background #081112;
+
+
+/* Item base */
+child {
+  border-radius: 10px;
+  padding: 2px 6px;
+  transition:
+    background-color 0.18s ease-out,
+    margin 0.18s ease-out;
+}
+
+/* Hover */
+child:hover {
+  background-color: alpha(@hover, 0.25);
+}
+
+/* Selected item */
+child:selected {
+  background-color: alpha(@hover, 0.45);
+  transition: background-color 0.22s ease-out;
+}
+
+child:selected .item-box {
+  margin-left: 6px;
+  transition: margin 0.18s ease-out;
+}
+
+child:selected .item-box * {
+  color: @text;
+}
+
+child:selected .item-box::before {
+  /* marker shown for the selected item */
+  content: "~>";
+  margin-right: 6px;
+  color: @border;
+  font-weight: 700;
+  opacity: 0.95;
+  display: inline-block;
+  width: 2ch;
+  text-align: right;
+}

@@ -1,0 +1,17 @@
+@define-color selected-text #9BB0C2;
+@define-color text #d4d5d9;
+@define-color base #0a0f1c;
+@define-color border #5f6374;
+@define-color foreground #d4d5d9;
+@define-color background #0a0f1c;
+
+/* Modules */
+.modules-left {
+  border: 1px solid @border;
+}
+.modules-right {
+  border: 1px solid @border;
+}
+.modules-center {
+  border: 1px solid @border;
+}

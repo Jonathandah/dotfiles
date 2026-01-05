@@ -1,0 +1,70 @@
+# Main background, empty for terminal default, need to be empty if you want transparent background
+theme[main_bg]="#0a0f1c"
+
+# Main text color
+theme[main_fg]="#d4d5d9"
+
+# Title color for boxes
+theme[title]="#A8B9C6"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#B8C7D0"
+
+# Background color of selected item in processes box
+theme[selected_bg]="#5f6374"
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#d4d5d9"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#5f6374"
+
+# Misc colors for processes box including mini cpu graphs, details memory graph and details status text
+theme[proc_misc]="#A8B9C6"
+
+# Box outline and divider line color
+theme[cpu_box]="#95A8B8"
+theme[mem_box]="#95A8B8"
+theme[net_box]="#95A8B8"
+theme[proc_box]="#95A8B8"
+theme[div_line]="#5f6374"
+
+# Gradient for all meters and graphs
+theme[temp_start]="#B8C7D0"
+theme[temp_mid]="#9BB0C2"
+theme[temp_end]="#95A8B8"
+
+
+theme[cpu_start]="#B8C7D0"
+theme[cpu_mid]="#9BB0C2"
+theme[cpu_end]="#95A8B8"
+
+
+theme[free_start]="#9BB0C2"
+theme[free_mid]="#9FADB8"
+theme[free_end]="#9FADB8"
+
+
+theme[cached_start]="#9FADB8"
+theme[cached_mid]="#9FADB8"
+theme[cached_end]="#9FADB8"
+
+
+theme[available_start]="#B8C7D0"
+theme[available_mid]="#B8C7D0"
+theme[available_end]="#B8C7D0"
+
+
+theme[used_start]="#95A8B8"
+theme[used_mid]="#95A8B8"
+theme[used_end]="#95A8B8"
+
+
+theme[download_start]="#9FADB8"
+theme[download_mid]="#B8C7D0"
+theme[download_end]="#9BB0C2"
+
+
+theme[upload_start]="#9FADB8"
+theme[upload_mid]="#B8C7D0"
+theme[upload_end]="#9BB0C2"heme[upload_end]="#9BB0C2"

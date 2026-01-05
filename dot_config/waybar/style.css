@@ -1,5 +1,9 @@
 @import "../omarchy/current/theme/waybar.css";
 
+@define-color error #F96184;
+@define-color warning #F6B016;
+@define-color success #01D38F;
+
 /* Global */
 * {
   color: @foreground;

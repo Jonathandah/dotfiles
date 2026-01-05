@@ -6,7 +6,6 @@
 @define-color foreground #01d38f;
 @define-color background #081112;
 
-
 /* Item base */
 child {
   border-radius: 10px;

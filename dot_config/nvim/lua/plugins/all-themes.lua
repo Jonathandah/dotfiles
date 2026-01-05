@@ -59,6 +59,11 @@ return {
     priority = 1000,
   },
   {
+    "Yazeed1s/oh-lucy.nvim",
+    lazy = true,
+    priority = 1000,
+  },
+  {
     "olivercederborg/poimandres.nvim",
     lazy = true,
     priority = 1000,

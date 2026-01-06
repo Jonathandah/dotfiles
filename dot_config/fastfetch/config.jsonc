@@ -1,10 +1,8 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "type": "kitty",
+    "type": "small",
     "source": "~/.config/omarchy/branding/about.png",
-    "height": 30,
-    "width": 60,
     "color": { "1": "green" },
     "padding": {
       "top": 2,

@@ -132,9 +132,7 @@
     "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
   },
   "hyprland/language": {
-    "format": "[{shortDescription}]",
-    "format-gb": "GB",
-    "format-se": "SWE",
+    "format": "[{}]",
     "on-click": "hyprctl switchxkblayout current next",
   },
   "network": {

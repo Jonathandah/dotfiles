@@ -6,40 +6,93 @@
   "margin-top": 2,
   "margin-right": 2,
   "margin-left": 2,
+
+  // @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
+  // Modules
   "modules-left": [
-    "custom/rofi",
-    "sway/workspaces",
+    "custom/omarchy",
     "sway/window",
     "hyprland/workspaces",
     "hyprland/window",
-    // "tray",
-    // "sway/mode",
-    "hyprland/submap",
   ],
-  "modules-center": ["clock"],
+  "modules-center": [
+    "clock",
+    "custom/mullvad",
+    "custom/update",
+    "custom/screenrecording-indicator",
+  ],
   "modules-right": [
+    "group/tray-expander",
     "network",
-    "disk",
-    "cpu",
-    // "custom/cpu_temp",
-    "backlight",
-    // "custom/memory",
+    "hyprland/language",
     "pulseaudio",
+    "cpu",
+    "memory",
     "battery",
   ],
-  "custom/rofi": {
+
+  // @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
+  // Custom
+  "custom/mullvad": {
+    "format": "{icon}",
+    "exec": "/home/jonathan/.config/waybar/scripts/mullvad_vpn.sh",
+    "interval": 60,
+    "return-type": "json",
+    "on-click": "/home/jonathan/.config/waybar/scripts/mullvad_vpn.sh toggle",
+    "on-click-middle": "mullvad-vpn",
+    "on-click-right": "/home/jonathan/.config/waybar/scripts/mullvad_vpn.sh reconnect",
+    "format-icons": {
+      "connected": "\uf023",
+      "connecting": "\uf023",
+      "disconnected": "\uf2fc",
+    },
+    "tooltip": true,
+  },
+  "custom/omarchy": {
     "format": "<span font='omarchy'></span>",
-    // "format": "  ARCH",
     "on-click": "omarchy-menu",
     "on-click-right": "xdg-terminal-exec",
-    "tooltip-format": "Omarchy Menu\n\nSuper + H",
+    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space",
   },
-  // Modules configuration
-  "sway/workspaces": {
-    "disable-scroll": true,
-    "active-only": false,
-    "all-outputs": true,
-    "warp-on-scroll": false,
+  "custom/update": {
+    "format": "",
+    "exec": "omarchy-update-available",
+    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
+    "tooltip-format": "Omarchy update available",
+    "signal": 7,
+    "interval": 3600,
+  },
+  "custom/screenrecording-indicator": {
+    "on-click": "omarchy-cmd-screenrecord",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
+    "signal": 8,
+    "return-type": "json",
+  },
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item",
+    },
+    "modules": ["custom/expand-icon", "tray"],
+  },
+  "custom/expand-icon": {
+    "format": "",
+    "tooltip": false,
+  },
+  "tray": {
+    "icon-size": 14,
+    "spacing": 8,
+  },
+
+  // @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
+  // Hyprland
+  "hyprland/language": {
+    "format": "<span color='#202020' bgcolor='#ea6962' >   </span> {short}",
+    "on-click": "hyprctl switchxkblayout current next",
+  },
+  "hyperland/workspaces": {
+    "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
       "1": "<span>󰧨</span>",
@@ -52,15 +105,29 @@
       "8": "<span>󰚀</span>",
     },
   },
-  "sway/window": {
-    "format": "<span color='#202020' bgcolor='#d3869b' > 󰣆 </span> {app_id}",
-    "separate-outputs": true,
-    "icon": false,
-    "tooltip": false,
-  },
-  "sway/mode": {
-    "format": " {}",
-    "max-length": 50,
+  "hyprland/window": {
+    "format": "{title} - {class}",
+    "max-length": 35,
+    "rewrite": {
+      " - ": "", // if no window is focused, a single dash is displayed, this removes it
+      "(.*?) - Chromium - chromium": "  $1 ",
+      "(.*chrome)...(.*)": "  $1 ",
+      "(.*) - Obsidian - .* - obsidian": "  $1 ",
+      "(.*nvim)...(.*)": "  $2 ",
+      "(.*code) - (.*)": " 󰨞 $1 ",
+      "^.*btop( .*|$)": " 󰧨 BTOP $1 ",
+      "^.*cmatrix( .*|$)": " 󰘨 MATRIX $1 ",
+      "(.*) - Spotify": "  $1 ",
+      "(.*) - com.mitchellh.ghostty": " 󰊠 $1 ",
+      "(.*) - Alacritty": "   $1 ",
+      "(.*) - BeeperTexts": " 󰻞  $1 ",
+      "(.*Discord)...(.*).. (.*)": "  $2 ",
+      "(.*) - org.gnome.Nautilus": " 󰣆 $1 ",
+      "(.*) - fish": "  [$1] ",
+      "(.*Steam)...(.*)": " $1",
+      "(.*imv)...(.*).. (.*)": " $2",
+      "(.*) - com.obsproject.Studio": "  $1 ",
+    },
   },
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -79,107 +146,90 @@
       "8": "<span>󰚀</span>",
     },
   },
-  "hyprland/window": {
-    "format": "<span color='#202020' bgcolor='#d3869b' > 󰣆 </span> {class}",
-    "separate-outputs": true,
-    "icon": false,
-    "tooltip": false,
-  },
-  "hyprland/submap": {
-    "format": " {}",
-    "max-length": 50,
-  },
-  "tray": {
-    "icon-size": 14,
-    "spacing": 8,
-  },
+
+  // @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
+  // Meta
   "disk": {
     "format": "<span color='#202020' bgcolor='#ea6962' >  </span> {free}",
     "interval": 20,
   },
   "cpu": {
-    "format": "<span color='#202020' bgcolor='#e78a4e' >  </span> {usage}%",
-    "tooltip": false,
-    "interval": 1,
-  },
-  // "custom/cpu_temp": {
-  //   // "exec": "~/.config/waybar/scripts/waybarTemp.sh",
-  //   "return-type": "json",
-  //   "interval": 2,
-  //   "format": "{}",
-  //   "tooltip": false
-  // },
-  "temperature": {
-    "tooltip": false,
-    "thermal-zone": 5,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-    "critical-threshold": 70,
-    "format": "<span color='#202020' bgcolor='#d8a657' > 󰴈 </span> {temperatureC}°C",
-    "format-critical": "<span color='#202020' bgcolor='#cc241d' >  </span> {temperatureC}°C",
-  },
-  "backlight": {
-    // "device": "acpi_video1",
-    "format": "<span color='#202020' bgcolor='#f6c657' > 󰞏 </span> {percent}%",
-    "tooltip": false,
-    // "on-click-right": "~/.config/custom_scripts/wlsunset.sh"
-  },
-  "custom/memory": {
+    "interval": 5,
+    "format": "<span color='#202020' bgcolor='#e78a4e' >  </span> {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
     "on-click": "omarchy-launch-or-focus-tui btop",
-    // "exec": "~/.config/waybar/scripts/memory_usage.sh",
-    "interval": 2,
-    // "return-type": "json",
-    // "format": " <span color='#89b4fa' font='Font Awesome 6 Free'></span>  {percentage}%",
-    "format": "<span color='#202020' bgcolor='#458588' >  </span>  {percentage}%",
   },
+  "memory": {
+    "format": "<span color='#202020' bgcolor='#f6c657' >  </span> {percentage}%",
+    "interval": 2,
+  },
+
   "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
     "format": "<span color='#202020' bgcolor='#83a598' >  </span> {volume}%",
     "format-muted": "<span color='#202020' bgcolor='#ea6962' >  </span> {volume}%",
-    "format-bluetooth": "<span color='#202020' bgcolor='#83a598' > 󰂰 </span> {volume}%",
-    "format-bluetooth-muted": "<span color='#202020' bgcolor='#ea6962' > 󰂲 </span> {volume}%",
     "format-source": "{volume}% ",
     "on-click": "omarchy-launch-or-focus-tui wiremix",
     "on-click-right": "pamixer -t",
     "tooltip": false,
-    "max-volume": 130,
-  },
-  "battery#bat2": {
-    "bat": "BAT2",
   },
   "battery": {
-    "interval": 1,
+    "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
+    "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+    "interval": 5,
+    "on-click": "omarchy-menu power",
     "states": {
       "good": 99,
       "warning": 30,
-      "critical": 20,
+      "critical": 10,
     },
-    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "format": "<span color='#202020' bgcolor='#689d6a' > {icon} </span> {capacity}%",
-    "format-critical": "<span color='#202020' bgcolor='#cc241d' > {icon} </span> {capacity}%!!",
-    "format-warning": "<span color='#202020' bgcolor='#e78a4e' > {icon} </span> {capacity}%",
-    "format-full": "<span color='#202020' bgcolor='#689d6a' > {icon} </span> {capacity}%",
-    "format-charging": "<span color='#202020' bgcolor='#689d6a' > 󰂅 </span> {capacity}%",
-    "format-charging-warning": "<span color='#202020' bgcolor='#e78a4e' > 󰢝 </span> {capacity}%",
-    "format-charging-critical": "<span color='#202020' bgcolor='#cc241d' > 󰢜 </span> {capacity}%",
-    "format-plugged": "<span color='#202020' bgcolor='#689d6a' > 󰂅 </span> {capacity}%",
-    "format-alt": "<span color='#202020' bgcolor='#689d6a' > 󱧥 </span> {time}",
-    "tooltip": false,
+    "format-icons": {
+      "charging": [
+        "⣀⣀⣀󱐋",
+        "⣀⣀⣤󱐋",
+        "⣀⣀⣶󱐋",
+        "⣀⣀⣿󱐋",
+        "⣀⣤⣿󱐋",
+        "⣀⣶⣿󱐋",
+        "⣀⣿⣿󱐋",
+        "⣤⣿⣿󱐋",
+        "⣶⣿⣿󱐋",
+        "⣿⣿⣿󱐋",
+      ],
+      "default": [
+        "⣀⣀⣀",
+        "⣀⣀⣤",
+        "⣀⣀⣶",
+        "⣀⣀⣿",
+        "⣀⣤⣿",
+        "⣀⣶⣿",
+        "⣀⣿⣿",
+        "⣤⣿⣿",
+        "⣶⣿⣿",
+        "⣿⣿⣿",
+      ],
+    },
+    "format": "<span color='#202020' bgcolor='#689d6a' > {icon} </span>",
+    "format-critical": "<span color='#202020' bgcolor='#cc241d' > {icon} </span>",
+    "format-warning": "<span color='#202020' bgcolor='#e78a4e' > {icon} </span>",
+    "format-full": "<span color='#202020' bgcolor='#689d6a' > {icon} </span>",
+    "format-charging": "<span color='#202020' bgcolor='#689d6a' > {icon} </span> {capacity}%",
+    "format-charging-warning": "<span color='#202020' bgcolor='#e78a4e' > {icon} </span> {capacity}%",
+    "format-charging-critical": "<span color='#202020' bgcolor='#cc241d' > {icon} </span> {capacity}%",
+    "format-plugged": "<span color='#202020' bgcolor='#689d6a' >  </span>",
   },
   "network": {
-    "interval": 2,
+    "interval": 3,
     "format": "<span color='#202020' bgcolor='#d3869b'> 󱘖 </span> {bandwidthDownBits}",
     "format-wifi": "<span color='#202020' bgcolor='#d3869b'> {icon} </span> {bandwidthDownBits}",
     "format-ethernet": "<span color='#202020' bgcolor='#d3869b'> 󰈀 </span> {bandwidthDownBits}",
     "format-icons": ["󰤫", "󰤟", "󰤢", "󰤥", "󰤨"],
-    "tooltip": false,
-    "states": {
-      "normal": 25,
-    },
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "omarchy-launch-wifi",
   },
   "clock": {
-    // "timezone": "America/New_York",
     "format": "<span color='#202020' bgcolor='#8ec07c' >  </span> {:%a %d | %H:%M}",
     "tooltip": false,
-    "interval": 1,
   },
 }

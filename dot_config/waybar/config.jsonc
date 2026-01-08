@@ -3,7 +3,14 @@
   "layer": "top",
   "position": "top",
   "spacing": 0,
+  "margin-top": 4,
+  "margin-left": 4,
+  "margin-right": 4,
+  "margin-bottom": 2,
   "height": 30,
+
+  // @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
+  // Modules
   "modules-left": [
     "custom/omarchy",
     "hyprland/workspaces",
@@ -27,6 +34,8 @@
     "battery",
   ],
 
+  // @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
+  // Custom
   "custom/mullvad": {
     "format": "{icon}",
     "exec": "/home/jonathan/.config/waybar/scripts/mullvad_vpn.sh",
@@ -41,6 +50,82 @@
       "disconnected": "\uf2fc",
     },
     "tooltip": true,
+  },
+  "custom/omarchy": {
+    "format": "<span font='omarchy'></span>",
+    "on-click": "omarchy-menu",
+    "on-click-right": "xdg-terminal-exec",
+    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space",
+  },
+  "custom/update": {
+    "format": "",
+    "exec": "omarchy-update-available",
+    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
+    "tooltip-format": "Omarchy update available",
+    "signal": 7,
+    "interval": 3600,
+  },
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item",
+    },
+    "modules": ["custom/expand-icon", "tray"],
+  },
+  "custom/expand-icon": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/screenrecording-indicator": {
+    "on-click": "omarchy-cmd-screenrecord",
+    "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
+    "signal": 8,
+    "return-type": "json",
+  },
+  "tray": {
+    "icon-size": 12,
+    "spacing": 12,
+  },
+  "custom/music": {
+    "format": "$ {}",
+    "escape": true,
+    "interval": 5,
+    "tooltip": false,
+    "exec": "playerctl metadata --format='{{ artist }} - {{ title }}'",
+    "on-click": "playerctl play-pause",
+    "max-length": 50,
+  },
+
+  // @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
+  // Hyprland
+  "hyprland/language": {
+    "format": "{short}",
+    "on-click": "hyprctl switchxkblayout current next",
+  },
+  "hyprland/window": {
+    "format": "{title} - {class}",
+    "max-length": 35,
+    "rewrite": {
+      " - ": "", // if no window is focused, a single dash is displayed, this removes it
+      "(.*?) - Chromium - chromium": "  $1 ",
+      "(.*chrome)...(.*)": "  $1 ",
+      "(.*) - Obsidian - .* - obsidian": "  $1 ",
+      "(.*nvim)...(.*)": "  $2 ",
+      "(.*code) - (.*)": " 󰨞 $1 ",
+      "^.*btop( .*|$)": " 󰧨 BTOP $1 ",
+      "^.*cmatrix( .*|$)": " 󰘨 MATRIX $1 ",
+      "(.*) - Spotify": "  $1 ",
+      "(.*) - com.mitchellh.ghostty": " 󰊠 $1 ",
+      "(.*) - Alacritty": "   $1 ",
+      "(.*) - BeeperTexts": " 󰻞  $1 ",
+      "(.*Discord)...(.*).. (.*)": "  $2 ",
+      "(.*) - org.gnome.Nautilus": " 󰣆 $1 ",
+      "(.*) - fish": "  [$1] ",
+      "(.*Steam)...(.*)": " $1",
+      "(.*imv)...(.*).. (.*)": " $2",
+      "(.*) - com.obsproject.Studio": "  $1 ",
+    },
   },
   "hyprland/workspaces": {
     "on-click": "activate",
@@ -67,54 +152,9 @@
       "5": [],
     },
   },
-  "hyprland/window": {
-    "format": "{title} - {class}",
-    "max-length": 35,
-    "rewrite": {
-      " - ": "", // if no window is focused, a single dash is displayed, this removes it
-      "(.*?) - Chromium - chromium": "  $1 ",
-      "(.*chrome)...(.*)": "  $1 ",
-      "(.*) - Obsidian - .* - obsidian": "  $1 ",
-      "(.*nvim)...(.*)": "  $2 ",
-      "(.*code) - (.*)": " 󰨞 $1 ",
-      "^.*btop( .*|$)": " 󰧨 BTOP $1 ",
-      "^.*cmatrix( .*|$)": " 󰘨 MATRIX $1 ",
-      "(.*) - Spotify": "  $1 ",
-      "(.*) - com.mitchellh.ghostty": " 󰊠 $1 ",
-      "(.*) - Alacritty": "   $1 ",
-      "(.*) - BeeperTexts": " 󰻞  $1 ",
-      "(.*Discord)...(.*).. (.*)": "  $2 ",
-      "(.*) - org.gnome.Nautilus": " 󰣆 $1 ",
-      "(.*) - fish": "  [$1] ",
-      "(.*Steam)...(.*)": " $1",
-      "(.*imv)...(.*).. (.*)": " $2",
-      "(.*) - com.obsproject.Studio": "  $1 ",
-    },
-  },
-  "custom/omarchy": {
-    "format": "[MENU]",
-    "on-click": "omarchy-menu",
-    "on-click-right": "xdg-terminal-exec",
-    "tooltip-format": "Omarchy Menu\n\nSuper + Alt + Space",
-  },
-  "custom/update": {
-    "format": "",
-    "exec": "omarchy-update-available",
-    "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
-    "tooltip-format": "Omarchy update available",
-    "signal": 7,
-    "interval": 3600,
-  },
 
-  "custom/music": {
-    "format": "$ {}",
-    "escape": true,
-    "interval": 5,
-    "tooltip": false,
-    "exec": "playerctl metadata --format='{{ artist }} - {{ title }}'",
-    "on-click": "playerctl play-pause",
-    "max-length": 50,
-  },
+  // @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
+  // Meta
   "cpu": {
     "interval": 5,
     "format": "󰍛 {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
@@ -123,30 +163,18 @@
   },
   "memory": {
     "interval": 2,
-    "format": " {percentage}%",
+    "format": "   {percentage}%",
   },
-  "clock": {
-    "format": "{:L%A %H:%M}",
-    "format-alt": "{:L%d %B W%V %Y}",
-    "tooltip": false,
-    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
-  },
-  "hyprland/language": {
-    "format": "[{short}]",
-    "on-click": "hyprctl switchxkblayout current next",
-  },
-  "network": {
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+  "pulseaudio": {
     "format": "{icon}",
-    "format-wifi": "{icon}",
-    "format-ethernet": "󰈀",
-    "format-disconnected": "󰤮",
-    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
-    "tooltip-format-disconnected": "Disconnected",
-    "interval": 3,
-    "spacing": 1,
-    "on-click": "omarchy-launch-wifi",
+    "on-click": "omarchy-launch-or-focus-tui wiremix",
+    "on-click-right": "pamixer -t",
+    "tooltip-format": "Playing at {volume}%",
+    "scroll-step": 5,
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", ""],
+    },
   },
   "battery": {
     "format": "{icon}",
@@ -189,6 +217,26 @@
       "critical": 10,
     },
   },
+  "clock": {
+    "format": "{:L%A %H:%M}",
+    "format-alt": "{:L%d %B W%V %Y}",
+    "tooltip": false,
+    "on-click-right": "omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
+  },
+
+  "network": {
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 3,
+    "spacing": 1,
+    "on-click": "omarchy-launch-wifi",
+  },
   "bluetooth": {
     "format": "",
     "format-disabled": "󰂲",
@@ -197,38 +245,5 @@
     "format-no-controller": "",
     "tooltip-format": "Devices connected: {num_connections}",
     "on-click": "omarchy-launch-bluetooth",
-  },
-  "pulseaudio": {
-    "format": "{icon}",
-    "on-click": "omarchy-launch-or-focus-tui wiremix",
-    "on-click-right": "pamixer -t",
-    "tooltip-format": "Playing at {volume}%",
-    "scroll-step": 5,
-    "format-muted": "",
-    "format-icons": {
-      "default": ["", "", ""],
-    },
-  },
-  "group/tray-expander": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 600,
-      "children-class": "tray-group-item",
-    },
-    "modules": ["custom/expand-icon", "tray"],
-  },
-  "custom/expand-icon": {
-    "format": "",
-    "tooltip": false,
-  },
-  "custom/screenrecording-indicator": {
-    "on-click": "omarchy-cmd-screenrecord",
-    "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
-    "signal": 8,
-    "return-type": "json",
-  },
-  "tray": {
-    "icon-size": 12,
-    "spacing": 12,
   },
 }

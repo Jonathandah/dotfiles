@@ -88,8 +88,6 @@ tooltip {
 }
 
 #custom-mullvad.disconnected {
-  font-size: 16px;
-  margin: 0 7.5px 0 4.5px;
   color: @error;
 }
 

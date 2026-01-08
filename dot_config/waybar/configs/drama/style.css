@@ -6,24 +6,21 @@
 * {
   color: @foreground;
   background: transparent;
-  border: none;
-  border-radius: 0;
-  min-height: 0;
-  font-family: "JetBrainsMono Nerd Font Mono";
+  font-family: "CaskaydiaCove Nerd Font Propo";
   font-size: 12px;
+  font-weight: 700;
 }
 
-.modules-left {
-  background-color: @background;
-  border-radius: 0 0 5px 0;
-}
 .modules-right {
   background-color: @background;
-  border-radius: 0 0 0 5px;
+  border-radius: 15px;
+  padding: 0 7.5px;
 }
+
 .modules-center {
   background-color: @background;
-  border-radius: 0 0 5px 5px;
+  border-radius: 15px;
+  padding: 0 7.5px;
 }
 
 #window,
@@ -44,7 +41,14 @@
 #custom-expand-icon,
 #custom-update {
   min-width: 14px;
-  margin: 0 7.5px;
+  padding: 0 7.5px;
+}
+
+#workspaces {
+  background-color: @background;
+  border-radius: 15px 0 0 15px;
+  padding: 2px 0 0 18px;
+  margin: 0 0 0 8px;
 }
 
 #workspaces button {
@@ -53,32 +57,51 @@
   margin: 0 1.5px;
   min-width: 9px;
 }
+
 #workspaces button.empty {
   opacity: 0.5;
+}
+
+#window {
+  background-color: @background;
+  border-radius: 0 15px 15px 0;
+  padding: 2px 18px 0 0;
+  margin: 0 8px 0 0;
+}
+
+tooltip {
+  padding: 2px;
+  background-color: @background;
+  border-radius: 5px;
+}
+
+#battery.critical {
+  color: @error;
 }
 
 #custom-mullvad.connecting {
   color: @foreground;
 }
+
 #custom-mullvad.connected {
   color: @success;
 }
+
 #custom-mullvad.disconnected {
   font-size: 16px;
   margin: 0 7.5px 0 4.5px;
   color: @error;
 }
 
-#custom-music {
-  color: @error;
-  padding-left: 15px;
-  border-left: 1px solid alpha(@foreground, 0.2);
+#custom-omarchy {
+  font-size: 16px;
 }
 
 #custom-omarchy,
-#custom-mullvad,
 #custom-music {
-  min-width: 0;
+  background-color: @background;
+  border-radius: 15px;
+  padding: 2px 18px;
 }
 
 #custom-screenrecording-indicator {
@@ -93,28 +116,4 @@
 
 .hidden {
   opacity: 0;
-}
-
-#bluetooth,
-#custom-expand-icon {
-  font-size: 14px;
-}
-
-#pulseaudio,
-#network {
-  font-size: 18px;
-}
-
-#clock {
-  margin-left: 8.75px;
-}
-
-tooltip {
-  padding: 2px;
-  background-color: @background;
-  border-radius: 5px;
-}
-
-#battery.critical {
-  color: @error;
 }

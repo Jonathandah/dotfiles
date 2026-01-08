@@ -1,12 +1,25 @@
+-- return {
+-- 	{
+-- 		"olivercederborg/poimandres.nvim",
+-- 		priority = 1000,
+-- 	},
+-- 	{
+-- 		"LazyVim/LazyVim",
+-- 		opts = {
+-- 			colorscheme = "poimandres",
+-- 		},
+-- 	},
+-- }
+
 return {
 	{
-		"olivercederborg/poimandres.nvim",
+		"folke/tokyonight.nvim",
 		priority = 1000,
 	},
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "poimandres",
+			colorscheme = "tokyonight-night",
 		},
 	},
 }

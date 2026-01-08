@@ -4,23 +4,13 @@
 @define-color success #01D38F;
 
 * {
-  color: @foreground;
-  background: transparent;
-  font-family: "CaskaydiaCove Nerd Font Propo";
+  font-family: "JetBrainsMono Nerd Font Mono";
+}
+
+#waybar {
   font-size: 12px;
-  font-weight: 700;
-}
-
-.modules-right {
-  background-color: @background;
-  border-radius: 15px;
-  padding: 0 7.5px;
-}
-
-.modules-center {
-  background-color: @background;
-  border-radius: 15px;
-  padding: 0 7.5px;
+  color: @foreground;
+  background: @background;
 }
 
 #window,
@@ -45,27 +35,25 @@
 }
 
 #workspaces {
+  margin: 0 8px;
   background-color: @background;
   border-radius: 15px 0 0 15px;
-  padding: 2px 0 0 18px;
-  margin: 0 0 0 8px;
 }
 
 #workspaces button {
   all: initial;
-  padding: 0 6px;
-  margin: 0 1.5px;
-  min-width: 9px;
+  font-size: 24px;
+  color: alpha(@foreground, 0.5);
 }
 
-#workspaces button.empty {
-  opacity: 0.5;
+#workspaces button.active {
+  color: @foreground;
 }
 
 #window {
   background-color: @background;
   border-radius: 0 15px 15px 0;
-  padding: 2px 18px 0 4px;
+  padding: 2px 18px 0 0;
   margin: 0 8px 0 0;
 }
 

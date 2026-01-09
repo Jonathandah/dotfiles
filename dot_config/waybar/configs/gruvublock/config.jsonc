@@ -35,12 +35,12 @@
   // Custom
   "custom/mullvad": {
     "format": "{icon}",
-    "exec": "/home/jonathan/.config/waybar/scripts/mullvad_vpn.sh",
+    "exec": "./scripts/mullvad_vpn.sh",
     "interval": 60,
     "return-type": "json",
-    "on-click": "/home/jonathan/.config/waybar/scripts/mullvad_vpn.sh toggle",
+    "on-click": "./scripts/mullvad_vpn.sh toggle",
     "on-click-middle": "mullvad-vpn",
-    "on-click-right": "/home/jonathan/.config/waybar/scripts/mullvad_vpn.sh reconnect",
+    "on-click-right": "./scripts/mullvad_vpn.sh reconnect",
     "format-icons": {
       "connected": "\uf023",
       "connecting": "\uf023",

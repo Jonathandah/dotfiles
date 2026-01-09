@@ -4,5 +4,4 @@
 [[entries]]
 default = true
 name = "DuckDuckGo"
-icons = "./duckduckgo.png"
 url = "https://duckduckgo.com/?q=%TERM%&kae=d"

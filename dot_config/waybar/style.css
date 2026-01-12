@@ -13,7 +13,7 @@
 
 #waybar {
   color: @foreground;
-  background: @background;
+  background: alpha(@background, 0.75);
 }
 
 .modules-left {

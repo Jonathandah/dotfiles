@@ -16,8 +16,8 @@
   ],
   "modules-right": [
     "group/tray-expander",
-    "network",
     "hyprland/language",
+    "network",
     "pulseaudio",
     "cpu",
     "memory",

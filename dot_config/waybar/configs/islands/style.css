@@ -4,29 +4,35 @@
 @define-color success #01D38F;
 
 * {
-  border: none;
-  border-radius: 0;
+  color: @foreground;
   background: transparent;
-  min-height: 0;
   font-family: "JetBrainsMono Nerd Font Mono";
   font-size: 12px;
+  font-weight: 700;
 }
 
-#waybar {
-  color: @foreground;
-}
-
-.modules-left {
-  background: @background;
-  border-radius: 5px;
-}
 .modules-right {
-  background: @background;
-  border-radius: 5px;
+  background-color: @background;
+  border-radius: 15px;
+  padding: 0 7.5px;
 }
+
 .modules-center {
-  background: @background;
-  border-radius: 5px;
+  border-radius: 15px;
+  padding: 0 7.5px;
+}
+
+window#waybar.empty #window {
+  background: transparent;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: transparent;
+  padding: 0;
+  margin: 0;
+}
+#waybar.empty .modules-center {
+  opacity: 0;
 }
 
 #window,
@@ -41,14 +47,29 @@
 #language,
 #clock,
 #custom-music,
-#window,
 #custom-mullvad,
 #custom-screenrecording-indicator,
 #custom-omarchy,
 #custom-expand-icon,
 #custom-update {
   min-width: 14px;
-  margin: 0 7.5px;
+  padding: 0 7.5px;
+}
+
+#workspaces {
+  background-color: @background;
+  border-radius: 15px;
+  padding: 8px;
+  margin: 0 0 0 8px;
+}
+
+#clock,
+#custom-update,
+#custom-screenrecording-indicator {
+  background-color: @background;
+  border-radius: 15px;
+  padding: 8px 12px;
+  margin: 0 0 0 8px;
 }
 
 #workspaces button {
@@ -57,59 +78,14 @@
   margin: 0 1.5px;
   min-width: 9px;
 }
+
 #workspaces button.empty {
   opacity: 0.5;
 }
 
-#custom-mullvad.connecting {
-  color: @foreground;
-}
-#custom-mullvad.connected {
-  color: @success;
-}
-#custom-mullvad.disconnected {
-  font-size: 16px;
-  margin: 0 7.5px 0 4.5px;
-  color: @error;
-}
-
-#custom-music {
-  padding-left: 24px;
-  border-left: 1px solid alpha(@foreground, 0.2);
-}
-
-#custom-omarchy,
-#custom-mullvad,
-#custom-music {
-  min-width: 0;
-}
-
-#custom-screenrecording-indicator {
-  min-width: 12px;
-  margin-left: 8.75px;
-  font-size: 10px;
-}
-
-#custom-screenrecording-indicator.active {
-  color: @error;
-}
-
-.hidden {
-  opacity: 0;
-}
-
-#bluetooth,
-#custom-expand-icon {
-  font-size: 14px;
-}
-
-#pulseaudio,
-#network {
-  font-size: 18px;
-}
-
-#clock {
-  margin-left: 8.75px;
+#window {
+  background-color: @background;
+  border-radius: 15px;
 }
 
 tooltip {
@@ -120,4 +96,44 @@ tooltip {
 
 #battery.critical {
   color: @error;
+}
+
+#custom-mullvad.connecting {
+  color: @foreground;
+}
+
+#custom-mullvad.connected {
+  color: @success;
+}
+
+#custom-mullvad.disconnected {
+  color: @error;
+}
+
+#custom-omarchy {
+  font-size: 16px;
+}
+
+#custom-omarchy,
+#custom-music {
+  background-color: @background;
+  border-radius: 15px;
+  padding: 2px 18px;
+}
+
+#custom-screenrecording-indicator.active {
+  color: @error;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+#custom-voxtype {
+  min-width: 12px;
+  margin: 0 0 0 7.5px;
+}
+
+#custom-voxtype.recording {
+  color: #a55555;
 }

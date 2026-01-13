@@ -1,0 +1,123 @@
+@import "../omarchy/current/theme/waybar.css";
+@define-color error #F96184;
+@define-color warning #F6B016;
+@define-color success #01D38F;
+
+* {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  min-height: 0;
+  font-family: "JetBrainsMono Nerd Font Mono";
+  font-size: 12px;
+}
+
+#waybar {
+  color: @foreground;
+}
+
+.modules-left {
+  background: @background;
+  border-radius: 5px;
+}
+.modules-right {
+  background: @background;
+  border-radius: 5px;
+}
+.modules-center {
+  background: @background;
+  border-radius: 5px;
+}
+
+#window,
+#tray,
+#cpu,
+#memory,
+#battery,
+#network,
+#bluetooth,
+#pulseaudio,
+#backlight,
+#language,
+#clock,
+#custom-music,
+#window,
+#custom-mullvad,
+#custom-screenrecording-indicator,
+#custom-omarchy,
+#custom-expand-icon,
+#custom-update {
+  min-width: 14px;
+  margin: 0 7.5px;
+}
+
+#workspaces button {
+  all: initial;
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 9px;
+}
+#workspaces button.empty {
+  opacity: 0.5;
+}
+
+#custom-mullvad.connecting {
+  color: @foreground;
+}
+#custom-mullvad.connected {
+  color: @success;
+}
+#custom-mullvad.disconnected {
+  font-size: 16px;
+  margin: 0 7.5px 0 4.5px;
+  color: @error;
+}
+
+#custom-music {
+  padding-left: 24px;
+  border-left: 1px solid alpha(@foreground, 0.2);
+}
+
+#custom-omarchy,
+#custom-mullvad,
+#custom-music {
+  min-width: 0;
+}
+
+#custom-screenrecording-indicator {
+  min-width: 12px;
+  margin-left: 8.75px;
+  font-size: 10px;
+}
+
+#custom-screenrecording-indicator.active {
+  color: @error;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+#bluetooth,
+#custom-expand-icon {
+  font-size: 14px;
+}
+
+#pulseaudio,
+#network {
+  font-size: 18px;
+}
+
+#clock {
+  margin-left: 8.75px;
+}
+
+tooltip {
+  padding: 2px;
+  background-color: @background;
+  border-radius: 5px;
+}
+
+#battery.critical {
+  color: @error;
+}

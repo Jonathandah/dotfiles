@@ -1,0 +1,17 @@
+@define-color selected-text #c15f3c;
+@define-color text #bfbaad;
+@define-color base #181818;
+@define-color border #b1ada1;
+@define-color foreground #bfbaad;
+@define-color background #181818;
+
+.box-wrapper {
+  border-radius: 6px;
+  background: @background;
+}
+
+child:selected {
+  border-radius: 6px;
+  background-color: alpha(@foreground, 0.03);
+  transition: background-color 0.22s ease-out;
+}

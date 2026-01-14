@@ -1,0 +1,23 @@
+@define-color background-color #181818;
+@define-color border-color #b1ada1;
+@define-color label #bfbaad;
+@define-color image #bfbaad;
+@define-color progress #b8b5a2;
+
+window {
+  border-radius: 6px;
+}
+
+.osd,
+osd,
+osd {
+  border-radius: 6px;
+}
+
+progressbar {
+  border-radius: 6px;
+}
+
+progressbar trough {
+  border-radius: 6px;
+}

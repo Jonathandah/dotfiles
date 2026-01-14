@@ -13,6 +13,9 @@ case ":$PATH:" in
 *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
+# ========= DOTNET ==========
+export PATH="$PATH:/home/jonathan/.dotnet/tools"
+
 # ========= Aliases ==========
 
 # Soft delete (move to trash)

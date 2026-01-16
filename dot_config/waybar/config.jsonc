@@ -140,7 +140,6 @@
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
-      "default": "",
       "active": "",
     },
     "persistent-workspaces": {

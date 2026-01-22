@@ -39,3 +39,33 @@ vim.keymap.set(
 vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { noremap = true, silent = true })
 -- Expand 'cc' into 'CodeCompanion' in the command line
 vim.cmd([[cab cc CodeCompanion]])
+
+-- Function to create decorative comment header
+local function create_comment_header()
+  local line = vim.api.nvim_get_current_line()
+  local text = vim.fn.input("Header text: ")
+  
+  if text == "" then
+    return
+  end
+  
+  -- Get comment string for current filetype
+  local commentstring = vim.bo.commentstring
+  local comment_char = commentstring:match("(.*)%%s") or "#"
+  comment_char = vim.trim(comment_char)
+  
+  -- Create the header (total width of 70 characters)
+  local text_with_spaces = " " .. text:upper() .. " "
+  local total_width = 70
+  local text_width = #text_with_spaces
+  local remaining = total_width - text_width
+  local left_padding = math.floor(remaining / 2)
+  local right_padding = remaining - left_padding
+  
+  local header = comment_char .. string.rep("#", left_padding) .. text_with_spaces .. string.rep("#", right_padding)
+  
+  -- Insert the header at current line
+  vim.api.nvim_set_current_line(header)
+end
+-- Keybind to create comment header
+vim.keymap.set("n", "<leader>ch", create_comment_header, { desc = "Create comment header" })

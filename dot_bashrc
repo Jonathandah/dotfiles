@@ -23,3 +23,9 @@ alias rmtrash='gio trash'
 
 # Upgrades your package.json
 alias ncu='npx npm-check-updates'
+
+############################# MONDAY NOTES ############################
+echo "MONDAY NOTES"
+echo "-------------------"
+echo "started on adding field array for approved pallets and image preivew"
+echo "https://github.com/skymill/resupply-frontend/pull/477/commits/2e16a87ce6ca8ecea7df1f621af93488f8a04af6"

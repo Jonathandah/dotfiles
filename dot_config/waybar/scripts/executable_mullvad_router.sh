@@ -54,13 +54,14 @@ fi
 # [get_module_data] Get data for custom/mullvad-router module in waybar. Returns waybar JSON
 get_module_data() {
   local class alt tooltip
+  local timestamp=$(date '+%H:%M:%S')
 
   if [ "$VPN_CONNECTION" = "Connected" ]; then
-    tooltip="Mullvad VPN (Router)\n\nStatus: Connected\nServer: $VPN_SERVER\nLocation: $VPN_CITY, $VPN_COUNTRY\nIP: $VPN_IP"
+    tooltip="Mullvad VPN (Router)\n\nStatus: Connected\nServer: $VPN_SERVER\nLocation: $VPN_CITY, $VPN_COUNTRY\nIP: $VPN_IP\n\nLast updated: $timestamp"
     class="connected"
     alt="connected"
   else
-    tooltip="Mullvad VPN (Router)\n\nStatus: Disconnected\nIP: $VPN_IP"
+    tooltip="Mullvad VPN (Router)\n\nStatus: Disconnected\nIP: $VPN_IP\n\nLast updated: $timestamp"
     class="disconnected"
     alt="disconnected"
   fi
@@ -69,8 +70,20 @@ get_module_data() {
 }
 
 
+# [copy_ip] Copy IP address to clipboard
+copy_ip() {
+  if [ -n "$VPN_IP" ]; then
+    echo -n "$VPN_IP" | wl-copy
+    echo "IP copied: $VPN_IP"
+  else
+    echo "No IP available"
+  fi
+}
+
+
 # @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @
 # Input
 case "$1" in
+copy) copy_ip ;;
 *) get_module_data ;;
 esac
